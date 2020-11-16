@@ -39,7 +39,7 @@ public class MovieAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         MovieViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, null);
             viewHolder = new MovieViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
@@ -47,7 +47,7 @@ public class MovieAdapter extends BaseAdapter {
         }
         Movie movie = getItem(position);
         viewHolder.titleText.setText(movie.getTitle());
-        String ratings = "Rated: " + movie.getRatings();
+        String ratings = "IMDb Rating: " + movie.getRatings();
         viewHolder.ratingsText.setText(ratings);
         viewHolder.descriptionText.setText(movie.getDescription());
         viewHolder.posterImage.setImageResource(movie.getImage());
